@@ -1,23 +1,19 @@
-# NLP
-What is the current perception of LoL's twitter analysts on the state of the game? What areas are the most complained about? What does everyone have a positive perception of that isn't seen in the meta right now?
+# NLP340
+Looking at League of Legends tweets to determine the state of the game. Using sentiment analysis and logistical regression to try and extract specific keywords that can be looked into further. No results were obtained due to the lack of data and the removal of data due to the change in the Twitter API. There could be researched more, but the current enviorment of the contents of the tweets as well as the new Twitter API makes further research less appealing.
 
-TODO:
+### The Question
+I wanted to see what the current perception of League of Legends largest content creators on the state of the game by using their tweets since the begninning of the year. I'm interested in this question because I work in the amatauer League of Legends scene, and I'm looking to see if the large content creators have some hidden strategies that could be hidden in their tweets. For example, if a specific keyword receives only positive sentiment tweets, it could be something to look into and see if the creators have found something that is overpowered or extremely strong. If this project was to succeed, some hidden strategies could be discovered and innovated on, allowing growth in the scene.
 
-Pull Tweets of LS, IWDominate, Molucule, Caedrel
-
-Filter non-League of Legends tweets out
-
-Classify tweets into item tweets, champions tweets, macro tweets
-
-Classify each categroy into positive and negative
-
-Determine which category has the most positive tweets, and which category has the most negative tweets
-
-See if the positive/negative tweets have certain correlations (certain items only have negative tweets, certain champions only have positive tweets)
-
-
-Possible implications:
-Possible change in how the game is played
-
-Potential Problems:
-Difficulty classifying tweets due to sarcasm in tweets
+### Process
+  I scraped the Twitters of 5 large content creators, LS, IWDominate, Caedrel, VeigarV2, and Molecule, to pull their most recent tweets. I then filtered the tweets to remove any tweet that wasn't directly related to League of Legends. I did this by looking for a list of keywords in the tweets, and filtering out any tweet that did not include one of the keywords. With the remaining tweets, I ran the data through a pretrained sentiment analysis model to attach a sentiment to each tweet. I then ran a logistical regression on the tweets to try and classify test tweets. 
+  I wanted to filter tweets for the specific keywords as many of these creators have lives outside of the game, tweeting about many other things in their lives (basketball and the weather were two big culprits). I wanted to use twitter over other sources of League of Legends information as the large content creators almost exclusively use Twitter or Patreon to post their thoughts. It is difficult to scrape patreon as everything is behind a paywall, so Twitter was the only real option. Besides posting their thoughts, many of the creators stream, but transcribing the thoughts said on a stream is it's own problem. 
+### Results
+  Results were inconclusive due to many problems with the data, the setiment analysis, as well as the model itself. Most of the results produced were very inconstiant, although certain keywords continued to produce negative sentiment tweets.
+  
+### Discussion
+  Due to the project using twitter data, when Elon Musk locked the twitter API behind a paywall, I lost access to all of my data as well as my ability to gather new data. This meant that my model has very poor accuracy, as I had filtered out many of the original tweets I had collected as it was difficult to determine if the tweet was related to League of Legends. I made an attempt to gather more data late in the semester, but I could not find a work around Twitter. 
+  There was another problem with the data where many of the tweets would have images attatched. Often these images would contain contexual information related to the text, changing the sentiment of the tweet. This made it such that more many tweets would have low sentiment confidence, which makes much of the data useless.
+   A third problem with the data is the prevalence of sarcasm in the tweets of certain creators. Many of the tweets could be seen as having positive sentiment to those uneducated about how the game works, but to those knowledgeable about the game, the purpose of the tweet would to make fun of something obvious to those in the know. This continues to make analysis of the data difficult. 
+   
+### Conclusion
+  DUe to the lack of results, no conclusion can be made about the original question this project was designed to answer. In the future, if access to more data becomes more available, more progress analysis the tweets themselves could be made, but would probaly run into similar problems as many of the problems stated in the discussion with a lack of knowledge about the game and the lack of context. Some areas of possible further research would be if it would be possible to read in the contents of the images and incorperate it into the data. Another possible area of possible research would be to see if ChatGPT could utilize information about the game to try and generate strategies within the game using the information given to it.
